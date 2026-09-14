@@ -1,0 +1,33 @@
+{
+  "project": "ONE",
+  "vault_version": "0.1.0",
+  "cutoff": "2026-09-14",
+  "status": "foundation",
+  "files": [
+    ".gitignore",
+    "README.md",
+    "architecture/computational-model.md",
+    "architecture/frontends-backends.md",
+    "architecture/ir.md",
+    "architecture/modularity-deployment.md",
+    "architecture/overview.md",
+    "constitution.md",
+    "decisions/ADR-001-one-core.md",
+    "decisions/ADR-002-multilevel-ir.md",
+    "decisions/ADR-003-modular-universality.md",
+    "decisions/README.md",
+    "evidence/origin.md",
+    "glossary.md",
+    "governance.md",
+    "research/hypotheses.md",
+    "research/related-work.md",
+    "research/risks.md",
+    "research/sources.md",
+    "roadmap/current-state.md",
+    "roadmap/open-questions.md",
+    "roadmap/phases.md",
+    "validation/experiments.md",
+    "validation/invariants.md"
+  ],
+  "notes": "No implementation exists at this snapshot; this vault preserves the founding idea, architecture, hypotheses, validation plan, risks, and provisional roadmap. Private project context is intentionally excluded from the public manifest and git tracking."
+}
