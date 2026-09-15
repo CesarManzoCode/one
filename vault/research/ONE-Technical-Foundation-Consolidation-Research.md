@@ -1,3 +1,10 @@
+---
+id: RES-005
+kind: research
+status: research
+snapshot: main@a2f89d4
+disposition: research/consolidation-disposition.md
+---
 # ONE — Technical Foundation Consolidation Research
 
 > **Epistemic status.** This is a research artifact, not an accepted specification or ADR. Every statement is labeled by role: **[ONE fact]**, **[current decision]**, **[hypothesis]**, **[external fact]**, **[research inference]**, **[recommendation]**, or **[open question]**. Recommendations do not become ONE decisions merely by appearing here.
