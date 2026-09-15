@@ -93,7 +93,7 @@ Uso: corrección (C-O1-2), robustez de lifting y sensibilidad a compilador y fla
 | `Pre(K)` en C | Clang con UBSan + ASan; Cerberus donde lo soporte | Cada entrada se ejecuta bajo detectores; una detección invalida la entrada | Clases de `ub` no cubiertas por los detectores, declaradas |
 | Ruta C extremo a extremo | Clang y GCC (`-O0`, `-O2`) | Diferencial sobre entradas válidas | Todas las divergencias resueltas |
 | Decodificador RV | Decodificador derivado de Sail | Clasificación legal/ilegal y campos: exhaustiva sobre las 2³² palabras si su coste se confirma; si no, exhaustiva por opcode mayor más aleatoria | Cobertura declarada |
-| Semántica por instrucción | Sail y Spike configurados `rv64im` | Operandos aleatorios más fronteras (`0`, `±1`, `MIN`, `MAX`, frontera de 2³¹), traps incluidos | Cero divergencias |
+| Semántica por instrucción | Sail y Spike con la configuración RV64IM-O1 de [ADR-008](../decisions/ADR-008-o1-oracle-baseline.md) | Operandos aleatorios más fronteras (`0`, `±1`, `MIN`, `MAX`, frontera de 2³¹), traps incluidos | Cero divergencias |
 | Lifting de funciones | Sail y Spike; subconjunto aplicable de riscv-arch-test; riscv-dv restringido a `rv64im` | Estado final bajo `π_orig` con el build `exact-state` | Cero divergencias |
 | Intérprete Core-O1 | Tabla de SPEC-002 §5 expresada en `QF_BV` | Tests dorados por operación, tests de propiedades, detección de `ub` | Cero divergencias |
 | Canonicalización y pases | SMT acotado; intérprete | Validación local por regla (SPEC-002 §9); diferencial antes/después sobre corpus y sobre programas Core generados sin `ub` | `unknown` contado por separado |

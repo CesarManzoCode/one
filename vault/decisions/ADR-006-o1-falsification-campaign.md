@@ -59,4 +59,4 @@ O2 y el diseño DSP; segundo backend; DBT; ELF como formato de entrada.
 
 ## Relaciones
 
-La dependencia `pre-código` sobre lenguaje e infraestructura (Q1) quedó resuelta por [ADR-007](ADR-007-o1-implementation-foundation.md) (v0.3.0). La consecuencia correspondiente describe el estado de v0.2.0. ADR-007 no fija las versiones de la composición rival ni de los oráculos.
+La dependencia `pre-código` sobre lenguaje e infraestructura (Q1) quedó resuelta por [ADR-007](ADR-007-o1-implementation-foundation.md) (v0.3.0). La consecuencia correspondiente describe el estado de v0.2.0. Los oráculos (Sail, Spike, Clang, GCC) quedan fijados por [ADR-008](ADR-008-o1-oracle-baseline.md). La caracterización de la composición rival sigue abierta como Q25 (`pre-held-out`).

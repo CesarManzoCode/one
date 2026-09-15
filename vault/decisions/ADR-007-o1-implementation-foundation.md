@@ -16,7 +16,7 @@ La deliberación está en el [research de Q1](../research/ONE-Q1-Implementation-
 
 ## Decisión
 
-Alcance: **implementación de O1**, bajo Core-O1 v0.1 (SPEC-002), los perfiles O1 v0.1 (SPEC-003) y las restricciones E1–E7. No fija la representación ni la implementación de ONE después de O1.
+Alcance: **implementación de O1**, bajo Core-O1 v0.1 (SPEC-002), los perfiles O1 vigentes (SPEC-003) y las restricciones E1–E7. No fija la representación ni la implementación de ONE después de O1.
 
 1. **Lenguaje.** C++17 es el lenguaje principal de implementación de O1. Las declaraciones de operaciones, tipos y atributos usan ODS/TableGen. No se añade una segunda implementación del core en otro lenguaje.
 2. **Core-O1 como dialecto propio sobre MLIR.** Core-O1 se implementa como un dialecto de ONE con operaciones, funciones y terminadores propios. Solo es legal en `J_O1` lo que declara ese dialecto conforme a SPEC-002. Ninguna operación upstream (por ejemplo, `arith`) entra en el join por semejanza de nombre, porque su semántica difiere (poison frente a `ub` inmediato). Los tipos enteros de MLIR pueden representar `iN`, con los anchos que restringe el verificador de ONE.
@@ -84,8 +84,8 @@ El research inspeccionó upstream `main`. Las dependencias concretas deben recon
 
 ## Qué no decide
 
-- Versiones de los oráculos y baselines de VAL-004: Sail, Spike, Clang, GCC, y LLVM/Rellume de la composición rival. `llvmorg-23.1.1` es la dependencia de implementación, no la versión de ningún oráculo o baseline.
-- Los puntos “A confirmar” de SPEC-003.
+- Versiones y configuración de los oráculos Sail, Spike, Clang y GCC: las fija [ADR-008](ADR-008-o1-oracle-baseline.md) en esta misma versión del vault, junto con SPEC-003 v0.2.
+- La caracterización de la composición rival, incluida la versión de Rellume ([Q25](../roadmap/open-questions.md), `pre-held-out`).
 - La configuración concreta del build y la versión del toolchain host.
 - El parser C concreto, que debe preservar el perfil y la descarga, y se contabiliza en `frontend-c`.
 - Serialización estable del IR ([Q23](../roadmap/open-questions.md)).
@@ -109,4 +109,4 @@ Un coste desconocido no es por sí solo condición de revisión. Una preferencia
 
 ## Relaciones
 
-Complementa ADR-005 (implementación de la representación, sin cambiarla). Resuelve la dependencia `pre-código` de ADR-006 sobre Q1. Se apoya en ADR-003 y ADR-004 para closure y atribución. Afecta a la atribución de C-O1-3, C-O1-5 y C-O1-6.
+Complementa ADR-005 (implementación de la representación, sin cambiarla). Resuelve la dependencia `pre-código` de ADR-006 sobre Q1. Se apoya en ADR-003 y ADR-004 para closure y atribución. Afecta a la atribución de C-O1-3, C-O1-5 y C-O1-6. Complementado por [ADR-008](ADR-008-o1-oracle-baseline.md), que fija los oráculos; ambos cierran el estado `pre-código`.

@@ -2,7 +2,7 @@
 id: SPEC-003
 kind: spec
 status: designed
-version: 0.1
+version: 0.2
 ---
 # Perfiles de O1: ONE-C-O1, RV64IM-O1, x86-64-O1
 
@@ -71,7 +71,15 @@ Coma flotante y `_Complex`; `char` sin calificar; `union`; bitfields; miembros f
 | Estructura de bucles | CFG | — | forma `for`/`while` | parcialmente, por análisis de bucles |
 | Ubicaciones | procedencia borrable | — | — | — |
 
-## 2. RV64IM-O1 v0.1
+## 2. RV64IM-O1 v0.2
+
+**Cambios respecto de v0.1**, todos en esta sección:
+
+- se fija el soporte de accesos no alineados, que v0.1 marcaba “A confirmar”;
+- las cargas y escrituras que cruzan el límite de una región son atómicas, con `tval` igual a la dirección efectiva;
+- las codificaciones `SLLIW`/`SRLIW`/`SRAIW` con `imm[5] ≠ 0` quedan reservadas por la ISA, y su trap es una decisión de este EEI.
+
+Los oráculos y su configuración están en [ADR-008](../decisions/ADR-008-o1-oracle-baseline.md); la caracterización, en [research](../research/o1-oracle-probes.md). ONE-C-O1 y x86-64-O1 no cambian.
 
 ### 2.1 Máquina de referencia
 
@@ -80,12 +88,12 @@ Coma flotante y `_Complex`; `char` sin calificar; `union`; bitfields; miembros f
 | Hart | RV64IM: `XLEN = 64`, sin C, F, D, A, V ni Zicsr visible; `IALIGN = 32`. |
 | Orden de bytes | little-endian. |
 | Modo | U, con entorno de ejecución a nivel de función (§2.3). |
-| Referencia normativa | RISC-V Unprivileged ISA, release citada en [fuentes](../research/sources.md). La versión exacta y la configuración de Sail y Spike (`rv64im`) se fijan en el preregistro. |
-| Accesos a datos en direcciones no alineadas | permitidos. **A confirmar** contra la configuración de los modelos de referencia antes del preregistro. |
+| Referencia normativa | RISC-V Unprivileged ISA, Version 20260120 (Official Release), citada en [fuentes](../research/sources.md). Oráculos y configuración: [ADR-008](../decisions/ADR-008-o1-oracle-baseline.md). |
+| Accesos a datos en direcciones no alineadas | **Soportados por el EEI.** La ISA deja su comportamiento al EEI. Este EEI garantiza la semántica de Zicclsm en todas las regiones: una carga o escritura de ancho `w` en la dirección efectiva `a` opera sobre los bytes `[a, a + w)` en little-endian, incluido el cruce de página, y nunca produce trap de alineación. Si algún byte queda fuera de una región con el permiso requerido, se aplica §2.3. |
 
 ### 2.2 Entrada
 
-Imagen cruda + manifiesto. **No se acepta ELF en v0.1.**
+Imagen cruda + manifiesto. **No se acepta ELF en v0.2.**
 
 | Campo del manifiesto | Contenido |
 |---|---|
@@ -109,11 +117,11 @@ Imagen cruda + manifiesto. **No se acepta ELF en v0.1.**
 | Evento | Resultado |
 |---|---|
 | Salto a la continuación de la activación | `return`: a nivel de entrada, `a0`/`a1` y el estado |
-| Lectura fuera de región `R` | `trap #load_access_fault(epc = pc, tval = dirección)` |
-| Escritura fuera de región `W` | `trap #store_access_fault(epc = pc, tval = dirección)` |
+| Lectura en la que algún byte de `[dirección, dirección + ancho)` está fuera de una región `R` | `trap #load_access_fault(epc = pc, tval = dirección)`. `tval` es la dirección efectiva del acceso, no la del primer byte inaccesible. |
+| Escritura en la que algún byte de `[dirección, dirección + ancho)` está fuera de una región `W` | `trap #store_access_fault(epc = pc, tval = dirección)`. El acceso es atómico: no se escribe ningún byte. |
 | Rama tomada o salto a destino no múltiplo de 4 | `trap #instruction_address_misaligned(epc = pc, tval = destino)` |
 | Ejecución en dirección fuera de región `X` | `trap #instruction_access_fault(epc = destino, tval = destino)` |
-| Codificación ilegal o de extensión no implementada alcanzada, incluido `SLLIW`/`SRLIW`/`SRAIW` con `shamt[5] = 1` | `trap #illegal_instruction(epc = pc)` |
+| Se alcanza una codificación no definida por RV64IM: reservada por la ISA (incluidas `SLLIW`/`SRLIW`/`SRAIW` con `imm[5] ≠ 0`) o de una extensión no implementada | `trap #illegal_instruction(epc = pc)`. Es una decisión de este EEI. La ISA 20260120 marca esas `*IW` como reservadas, con comportamiento UNSPECIFIED; versiones anteriores de la ISA exigían la excepción. |
 | `ECALL` / `EBREAK` | `trap #env_call(epc)` / `trap #breakpoint(epc)` |
 | Transferencia dinámica a una dirección `X` que no es la continuación | `unsupported(indirect_transfer)` |
 
