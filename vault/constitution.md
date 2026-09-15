@@ -61,7 +61,7 @@ No se fija un límite arbitrario de LOC. Sí se medirán como propiedades de pri
 - tiempo de compilación;
 - dependencias;
 - cantidad de infraestructura duplicada entre dominios;
-- cantidad de código realmente compartido;
+- reutilización material de mecanismos y de conocimiento de optimización entre dominios, medida como vector (el tamaño de código es solo diagnóstico);
 - coste de añadir un frontend o backend nuevo.
 
 ## Herramientas
@@ -87,6 +87,8 @@ Esto es una hipótesis, no una promesa.
 ONE puede usar LLVM, GCC, QEMU, FFmpeg, MLIR, GNU Radio, TVM, bibliotecas numéricas y otras implementaciones como oráculos, rivales y fuentes de investigación. No deben convertirse inadvertidamente en la implementación central de la propiedad que ONE pretende demostrar.
 
 Si un sistema rival mejora y elimina una ventaja de ONE, se actualiza la comparación. La arquitectura debe sobrevivir al mejor rival disponible, no a una versión conveniente del rival.
+
+ONE no reclama novedad por mecanismos ya establecidos (IR compartido, SSA, IR multinivel, dialectos, lowering progresivo, lifting binario, DBT sobre IR común, reutilización de frontends y backends, runtimes especializados) ni por haberlos implementado de nuevo. Su originalidad, si existe, solo puede demostrarse mediante propiedades observables que la composición de sistemas existentes no ofrezca con coste comparable.
 
 ## Qué significa éxito técnico
 

@@ -2,48 +2,55 @@
 id: NAV-001
 kind: navigation
 status: accepted
-version: 0.1.0
+version: 0.2.0
 cutoff: 2026-09-14
 ---
 # ONE — Vault fundacional
 
-Este vault conserva la idea completa de **ONE** en su estado fundacional. No pretende congelar una implementación prematuramente. Su función es impedir que la idea dependa de un chat, que se pierdan distinciones importantes o que futuras iteraciones reescriban retrospectivamente qué queríamos construir.
+Este vault conserva la idea de **ONE** y la convierte en contratos, decisiones y experimentos falsables antes de que exista implementación. Su función es impedir que la idea dependa de un chat, que se pierdan distinciones importantes o que futuras iteraciones reescriban retrospectivamente qué queríamos construir o qué se ha demostrado.
 
-ONE parte de una apuesta simple y extrema:
+ONE parte de una apuesta:
 
-> Muchos dominios de software que hoy viven en toolchains separados pueden conservar sus semánticas específicas en niveles altos y, aun así, converger hacia un núcleo computacional común capaz de compartir análisis, optimización, ejecución, tooling y backends sin pagar proporcionalmente por la generalidad.
+> Formas de cómputo provenientes de dominios diferentes pueden conservar su semántica específica mientras importa y después converger hacia infraestructura materialmente compartida de representación, análisis, optimización, codegen, ejecución, verificación y tooling, sin que cada artefacto pague por la generalidad que no usa.
 
-La idea **no** es afirmar que video, radio, código fuente e instrucciones de CPU sean la misma cosa. Son objetos distintos con semánticas distintas. ONE intenta unificar **el cómputo que opera sobre ellos** en el nivel donde esa unificación sea real y útil.
+ONE **no** afirma que video, radio, código fuente e instrucciones de CPU sean lo mismo. Intenta unificar el cómputo que opera sobre ellos en el punto donde esa unificación sea real, medible y útil.
 
-## Lectura inicial
+## Lectura
+
+**Fundamento**
 
 1. [Constitución](constitution.md): qué es ONE, qué no es y qué no se debe perder.
-2. [Origen y criterio técnico](evidence/origin.md): por qué existe el proyecto y qué debe demostrar.
-3. [Arquitectura general](architecture/overview.md): visión de extremo a extremo.
-4. [Modelo computacional](architecture/computational-model.md): qué significa realmente “tratar cosas distintas con primitivas comunes”.
-5. [ONE IR](architecture/ir.md): hipótesis central de representación multinivel.
-6. [Frontends y backends](architecture/frontends-backends.md): cómo entran y salen los dominios.
-7. [Modularidad y despliegue](architecture/modularity-deployment.md): cómo evitar que universal signifique pesado.
-8. [Hipótesis](research/hypotheses.md): qué debe ser demostrado y qué puede fallar.
-9. [Trabajo relacionado](research/related-work.md): QEMU/TCG, MLIR y prior art relevante.
-10. [Invariantes](validation/invariants.md): propiedades que futuras implementaciones no pueden erosionar silenciosamente.
-11. [Experimentos](validation/experiments.md): cómo se falsará la idea.
-12. [Estado](roadmap/current-state.md), [fases](roadmap/phases.md) y [preguntas abiertas](roadmap/open-questions.md).
+2. [Origen y criterio técnico](evidence/origin.md).
+3. [Gobierno](governance.md): estados epistemológicos, preregistro, excepciones, versionado.
+4. [Registro de claims](claims.md): qué se intenta demostrar, qué no se afirma, estado de cada claim.
 
-## Estados epistemológicos
+**Decisiones y arquitectura**
 
-- **Aceptado**: decisión fundacional vigente hasta que una decisión posterior la reemplace explícitamente.
-- **Hipótesis**: afirmación que debe sobrevivir experimentos.
-- **Diseñado**: contrato o arquitectura deseada, no evidencia de que ya funcione.
-- **Observado**: hecho obtenido de una ejecución o medición identificable.
-- **Abierto**: incertidumbre que no debe rellenarse con una suposición cómoda.
+5. [Decisiones](decisions/README.md): ADR-001 a ADR-006.
+6. [Arquitectura general](architecture/overview.md) · [Modelo computacional](architecture/computational-model.md) · [ONE IR](architecture/ir.md) · [Frontends y backends](architecture/frontends-backends.md) · [Modularidad](architecture/modularity-deployment.md).
 
-## Regla de precedencia
+**Contratos**
 
-Propósito explícito → constitución → decisiones vigentes → contratos de arquitectura → planes → implementación.
+7. [SPEC-001 Semántica](spec/semantics.md): observación, relaciones, join, contratos de olvido.
+8. [SPEC-002 Core-O1](spec/core-o1.md): operaciones, verificador, canonicalización, pases.
+9. [SPEC-003 Perfiles O1](spec/o1-profiles.md): ONE-C-O1, RV64IM-O1, x86-64-O1.
 
-La evidencia siempre puede obligar a cambiar una decisión. Una decisión nunca puede obligar a reinterpretar una medición para que “encaje”.
+**Validación y evidencia**
+
+10. [Invariantes](validation/invariants.md) · [Métricas](validation/metrics.md) · [Protocolo O1](validation/o1-protocol.md) · [Mapa experimental](validation/experiments.md).
+11. [Ledger de evidencia](evidence/ledger.md): vacío.
+
+**Investigación y estado**
+
+12. [Trabajo relacionado](research/related-work.md) · [Riesgos](research/risks.md) · [Fuentes](research/sources.md) · [Research de consolidación](research/ONE-Technical-Foundation-Consolidation-Research.md) y su [disposición](research/consolidation-disposition.md).
+13. [Estado actual](roadmap/current-state.md) · [Fases](roadmap/phases.md) · [Preguntas abiertas](roadmap/open-questions.md) · [Glosario](glossary.md).
+
+## Estados y precedencia
+
+Los estados (`accepted`, `designed`, `hypothesis`, `open`, `provisional`, `research`, `observed`, `superseded`) se definen en [gobierno](governance.md).
+
+Precedencia: propósito explícito → constitución → decisiones vigentes → contratos (`architecture/`, `spec/`, `validation/`) → planes → implementación. La evidencia puede obligar a cambiar una decisión; una decisión nunca justifica reinterpretar una medición.
 
 ## Estado actual
 
-**No existe implementación de ONE.** Existe una hipótesis, una arquitectura inicial y una ruta de falsificación. La siguiente acción técnica es O1: construir el primer vertical mínimo que pruebe o rompa el núcleo común.
+**No existe implementación de ONE ni evidencia observada.** Existen decisiones, contratos diseñados y una campaña O1 definida para intentar romper el join en el par de orígenes más cercano. Lo que falta antes de escribir código está en el [estado actual](roadmap/current-state.md).
