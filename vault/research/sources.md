@@ -9,7 +9,7 @@ Fecha de corte: 2026-09-14. Se listan las fuentes en que se apoyan decisiones, s
 
 **Marcas**:
 
-- **[c]**: consultada directamente durante la consolidación o durante la incorporación de ADR-007 (2026-09-14);
+- **[c]**: consultada directamente durante la consolidación o durante la incorporación de ADR-007 y ADR-008 (2026-09-14);
 - **[r]**: tomada del ledger del research;
 - **[b]**: referencia bibliográfica conocida, no consultada en este sprint. Debe verificarse antes de citarse como soporte central.
 
@@ -36,10 +36,13 @@ Fecha de corte: 2026-09-14. Se listan las fuentes en que se apoyan decisiones, s
 
 ## RISC-V (SPEC-003 §2)
 
-- [r] RISC-V Unprivileged ISA, release 20260120 — https://docs.riscv.org/reference/isa/v20260120/unpriv/unpriv-index.html
+- [c] The RISC-V Instruction Set Manual, Volume I (Unprivileged), Version 20260120, Official Release — https://docs.riscv.org/reference/isa/v20260120/unpriv/unpriv-index.html
+  - capítulo RV32I, *Load and Store Instructions*: los accesos no alineados dependen del EEI; el comportamiento al decodificar una instrucción reservada es UNSPECIFIED — https://docs.riscv.org/reference/isa/v20260120/unpriv/rv32.html
+  - capítulo RV64I: “SLLIW, SRLIW, and SRAIW encodings with imm[5] ≠ 0 are reserved”; antes causaban illegal-instruction — https://docs.riscv.org/reference/isa/v20260120/unpriv/rv64.html
+- [c] RISC-V Profiles, RVA23/RVB23 ratified (`src/rva23-profile.adoc`): definición de Zicclsm — https://github.com/riscv/riscv-profiles
 - [r] RISC-V ABIs Specification (psABI) — https://riscv-non-isa.github.io/riscv-elf-psabi-doc/
-- [r] Sail RISC-V model — https://github.com/riscv/sail-riscv
-- [b] Spike RISC-V ISA simulator — https://github.com/riscv-software-src/riscv-isa-sim
+- [c] Sail RISC-V model, release 0.14, commit `29e6158f0a88bdb26b9fbcd0718ab919449b5179` — https://github.com/riscv/sail-riscv
+- [c] Spike RISC-V ISA simulator, commit `1e05ddac3a6c351bfc0aeed0cf3a68940e7200ab` — https://github.com/riscv-software-src/riscv-isa-sim
 - [r] riscv-arch-test — https://github.com/riscv/riscv-arch-test
 - [r] riscv-dv — https://github.com/chipsalliance/riscv-dv
 
@@ -66,7 +69,8 @@ Fecha de corte: 2026-09-14. Se listan las fuentes en que se apoyan decisiones, s
 
 Tomadas del [research de Q1](ONE-Q1-Implementation-Foundation-Decision.md) ([r] en esta sección se refiere a ese research), salvo indicación.
 
-- [c] llvm-project, tag `llvmorg-23.1.1` → commit `6dfe1677ab8dffbc6ec13d53a1e0215d75147689` (verificado con `git ls-remote`) — https://github.com/llvm/llvm-project
+- [c] llvm-project, tag `llvmorg-23.1.1` → commit `6dfe1677ab8dffbc6ec13d53a1e0215d75147689` (verificado con `git ls-remote`); también fija Clang (ADR-008) — https://github.com/llvm/llvm-project
+- [c] GCC releases (GCC 16.2, 2026-08-07); tag `releases/gcc-16.2.0` → commit `78d4ac73dd391005b895a6148cd9831e28e1208b` — https://gcc.gnu.org/releases.html
 - [r] MLIR ODS — https://mlir.llvm.org/docs/DefiningDialects/Operations/
 - [r] MLIR Interfaces — https://mlir.llvm.org/docs/Interfaces/
 - [r] MLIR `arith` dialect — https://mlir.llvm.org/docs/Dialects/ArithOps/
