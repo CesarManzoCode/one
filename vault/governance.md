@@ -61,5 +61,5 @@ Cada documento declara `id`, `kind` y `status` en frontmatter. Las specs y proto
 
 ## Versionado
 
-- **Vault**: semver. Minor para cambios de decisiones, contratos o semántica; patch para correcciones editoriales. v0.1.0 fue la fundación; v0.2.0 es la consolidación técnica previa a O1. Una 1.0 debe corresponder a una arquitectura implementada y defendible, no a documentación madura.
+- **Vault**: semver. Minor para cambios de decisiones, contratos o semántica; patch para correcciones editoriales. v0.1.0 fue la fundación; v0.2.0 es la consolidación técnica previa a O1; v0.3.0 incorpora la implementation foundation y los oráculos de O1 (ADR-007, ADR-008) y cierra el estado pre-código. Una 1.0 debe corresponder a una arquitectura implementada y defendible, no a documentación madura.
 - **Contratos** (specs, protocolos): versión propia (`Core-O1 v0.1`). Un cambio semántico incrementa su versión. Toda evidencia cita la versión del vault y de cada contrato bajo el que se obtuvo.

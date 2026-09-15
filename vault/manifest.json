@@ -1,9 +1,9 @@
 {
   "project": "ONE",
-  "vault_version": "0.2.0",
-  "previous_version": "0.1.0",
+  "vault_version": "0.3.0",
+  "previous_version": "0.2.0",
   "cutoff": "2026-09-14",
-  "status": "foundation-consolidated",
+  "status": "pre-code-closed",
   "files": [
     "README.md",
     "architecture/computational-model.md",
@@ -19,14 +19,22 @@
     "decisions/ADR-004-semantic-discharge-convergence.md",
     "decisions/ADR-005-core-o1-representation.md",
     "decisions/ADR-006-o1-falsification-campaign.md",
+    "decisions/ADR-007-o1-implementation-foundation.md",
+    "decisions/ADR-008-o1-oracle-baseline.md",
     "decisions/README.md",
     "evidence/ledger.md",
     "evidence/origin.md",
     "glossary.md",
     "governance.md",
     "manifest.json",
+    "research/ONE-Q1-Implementation-Foundation-Decision.md",
     "research/ONE-Technical-Foundation-Consolidation-Research.md",
     "research/consolidation-disposition.md",
+    "research/o1-oracle-probes.md",
+    "research/o1-oracle-probes/mkprobe.py",
+    "research/o1-oracle-probes/sail-region-end-0x80003000.json",
+    "research/o1-oracle-probes/sail-rv64im-o1.json",
+    "research/q1-disposition.md",
     "research/related-work.md",
     "research/risks.md",
     "research/sources.md",
@@ -44,10 +52,43 @@
   "contracts": {
     "SPEC-001": "0.1",
     "SPEC-002 (Core-O1)": "0.1",
-    "SPEC-003 (ONE-C-O1, RV64IM-O1, x86-64-O1)": "0.1",
+    "SPEC-003 (ONE-C-O1, RV64IM-O1, x86-64-O1)": "0.2",
     "VAL-003": "0.1",
     "VAL-004": "0.1"
   },
+  "implementation_foundation": {
+    "decision": "ADR-007",
+    "language": "C++17",
+    "infrastructure": "MLIR (Core-O1 as a ONE-owned dialect)",
+    "build": "CMake/Ninja",
+    "llvm_project": {
+      "tag": "llvmorg-23.1.1",
+      "commit": "6dfe1677ab8dffbc6ec13d53a1e0215d75147689"
+    }
+  },
+  "oracles": {
+    "decision": "ADR-008",
+    "sail_riscv": {
+      "release": "0.14",
+      "commit": "29e6158f0a88bdb26b9fbcd0718ab919449b5179",
+      "config_override": "research/o1-oracle-probes/sail-rv64im-o1.json"
+    },
+    "spike": {
+      "commit": "1e05ddac3a6c351bfc0aeed0cf3a68940e7200ab",
+      "version_string": "1.1.1-dev",
+      "options": "--isa=rv64im_zicsr_zicclsm --priv=mu"
+    },
+    "clang": {
+      "tag": "llvmorg-23.1.1",
+      "commit": "6dfe1677ab8dffbc6ec13d53a1e0215d75147689"
+    },
+    "gcc": {
+      "tag": "releases/gcc-16.2.0",
+      "commit": "78d4ac73dd391005b895a6148cd9831e28e1208b"
+    }
+  },
+  "pre_code_open_items": 0,
+  "next_step": "First O1 implementation sprint: minimal Core-O1 infrastructure, verifier, reference interpreter, minimal harness/oracle integration.",
   "evidence_entries": 0,
-  "notes": "No implementation and no observed evidence exist at this snapshot. v0.2.0 consolidates the foundation into accepted decisions (ADR-004..006), designed semantic contracts, the O1 falsification protocol, metrics, a claims registry and an empty evidence ledger. research/hypotheses.md was replaced by claims.md. Private project context is intentionally excluded from the public manifest and git tracking."
+  "notes": "No implementation and no observed evidence of ONE exist at this snapshot. v0.3.0 closes the pre-code state: ADR-007 accepts the O1 implementation foundation from the Q1 research (research remains research; disposition in research/q1-disposition.md), ADR-008 pins the O1 oracles, and SPEC-003 v0.2 resolves misaligned RV64IM accesses and reserved *IW encodings using reproducible oracle probes (research/o1-oracle-probes.md), which characterize external tools and are not ledger evidence. Decisions are architectural, not performance claims. Pre-held-out items (K contracts, corpus, held-out, controls, U1-U7, Q9, Q10, Q25, preregistration) remain open. v0.2.0 consolidated the foundation into accepted decisions (ADR-004..006), designed semantic contracts, the O1 falsification protocol, metrics, a claims registry and an empty evidence ledger. research/hypotheses.md was replaced by claims.md. Private project context is intentionally excluded from the public manifest and git tracking."
 }

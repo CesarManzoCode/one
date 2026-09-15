@@ -9,7 +9,7 @@ Qué intenta demostrar ONE, qué no afirma y qué observación cambiaría cada e
 
 **Estados de claim.** `untested` · `supported` (sobrevivió a su falsador bajo el protocolo citado; nunca “probado”) · `refuted` · `inconclusive` (el protocolo no pudo discriminar, por ejemplo por métrica inválida) · `withdrawn` (retirado con motivo). Todo cambio de estado cita entradas de [evidence/ledger.md](evidence/ledger.md).
 
-> **Estado a 2026-09-14 (vault v0.2.0): todos los claims están `untested`. No existe evidencia observada.**
+> **Estado a 2026-09-14 (vault v0.3.0): todos los claims están `untested`. No existe evidencia observada.**
 
 ## 1. Hipótesis globales
 
@@ -58,11 +58,11 @@ Alcance común: perfiles ONE-C-O1, RV64IM-O1 y x86-64-O1 ([SPEC-003](spec/o1-pro
 | Claim | Decisiones | Contratos | Protocolo | Evidencia |
 |---|---|---|---|---|
 | C-O1-1 | ADR-001, ADR-004, ADR-005 | SPEC-001 §6, SPEC-002 | VAL-004 G2, G3 | — |
-| C-O1-2 | ADR-004, ADR-006 | SPEC-001 §3–4, SPEC-003 | VAL-004 §7, G1, G6 | — |
-| C-O1-3 | ADR-001, ADR-004 | SPEC-002 §10 | VAL-004 U4; VAL-003 §4 | — |
+| C-O1-2 | ADR-004, ADR-006, ADR-008 | SPEC-001 §3–4, SPEC-003 | VAL-004 §7, G1, G6 | — |
+| C-O1-3 | ADR-001, ADR-004, ADR-007 | SPEC-002 §10 | VAL-004 U4; VAL-003 §4 | — |
 | C-O1-4 | ADR-004, ADR-006 | SPEC-001 §9 | VAL-004 §6, G8, U1; VAL-003 §3 | — |
-| C-O1-5 | ADR-004 | SPEC-003 §3 | VAL-004 G4 | — |
-| C-O1-6 | ADR-003 | ARC-005 | VAL-004 G5; VAL-003 §6 | — |
+| C-O1-5 | ADR-004, ADR-007 | SPEC-003 §3 | VAL-004 G4 | — |
+| C-O1-6 | ADR-003, ADR-007 | ARC-005 | VAL-004 G5; VAL-003 §6 | — |
 | C-O1-7 | ADR-006 | SPEC-003 | VAL-004 U2, U3; VAL-003 §8 | — |
 | C-O1-8 | ADR-006 | — | VAL-004 §11 | — |
 | S-O1-9 | ADR-006 | SPEC-003 | VAL-004 §5 | — |

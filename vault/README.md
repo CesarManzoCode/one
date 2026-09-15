@@ -2,7 +2,7 @@
 id: NAV-001
 kind: navigation
 status: accepted
-version: 0.2.0
+version: 0.3.0
 cutoff: 2026-09-14
 ---
 # ONE — Vault fundacional
@@ -26,7 +26,7 @@ ONE **no** afirma que video, radio, código fuente e instrucciones de CPU sean l
 
 **Decisiones y arquitectura**
 
-5. [Decisiones](decisions/README.md): ADR-001 a ADR-006.
+5. [Decisiones](decisions/README.md): ADR-001 a ADR-008.
 6. [Arquitectura general](architecture/overview.md) · [Modelo computacional](architecture/computational-model.md) · [ONE IR](architecture/ir.md) · [Frontends y backends](architecture/frontends-backends.md) · [Modularidad](architecture/modularity-deployment.md).
 
 **Contratos**
@@ -42,7 +42,7 @@ ONE **no** afirma que video, radio, código fuente e instrucciones de CPU sean l
 
 **Investigación y estado**
 
-12. [Trabajo relacionado](research/related-work.md) · [Riesgos](research/risks.md) · [Fuentes](research/sources.md) · [Research de consolidación](research/ONE-Technical-Foundation-Consolidation-Research.md) y su [disposición](research/consolidation-disposition.md).
+12. [Trabajo relacionado](research/related-work.md) · [Riesgos](research/risks.md) · [Fuentes](research/sources.md) · [Research de consolidación](research/ONE-Technical-Foundation-Consolidation-Research.md) y su [disposición](research/consolidation-disposition.md) · [Research de Q1](research/ONE-Q1-Implementation-Foundation-Decision.md) y su [disposición](research/q1-disposition.md) · [Caracterización de oráculos O1](research/o1-oracle-probes.md).
 13. [Estado actual](roadmap/current-state.md) · [Fases](roadmap/phases.md) · [Preguntas abiertas](roadmap/open-questions.md) · [Glosario](glossary.md).
 
 ## Estados y precedencia
@@ -53,4 +53,4 @@ Precedencia: propósito explícito → constitución → decisiones vigentes →
 
 ## Estado actual
 
-**No existe implementación de ONE ni evidencia observada.** Existen decisiones, contratos diseñados y una campaña O1 definida para intentar romper el join en el par de orígenes más cercano. Lo que falta antes de escribir código está en el [estado actual](roadmap/current-state.md).
+**No existe implementación de ONE ni evidencia observada.** Existen decisiones, contratos diseñados, una campaña O1 definida para intentar romper el join en el par de orígenes más cercano una implementation foundation decidida pero no implementada (ADR-007) y oráculos fijados (ADR-008). El estado `pre-código` está cerrado: el siguiente paso es el primer sprint de implementación de O1. Lo que falta antes de escribir código está en el [estado actual](roadmap/current-state.md).

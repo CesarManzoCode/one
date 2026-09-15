@@ -1,0 +1,120 @@
+{
+ "memory": {
+  "regions": [
+   {
+    "attributes": {
+     "atomic_support": "AMONone",
+     "cacheable": true,
+     "coherent": false,
+     "executable": false,
+     "mem_type": "IOMemory",
+     "misaligned_atomicity_granule_size_exp": 0,
+     "misaligned_exceptions": {
+      "amo": "AccessFault",
+      "load_store": {
+       "None": null
+      },
+      "lrsc": "AccessFault",
+      "vector": {
+       "None": null
+      }
+     },
+     "read_idempotent": true,
+     "readable": true,
+     "reservability": "RsrvNone",
+     "supports_cbo_zero": false,
+     "supports_pte_read": false,
+     "supports_pte_write": false,
+     "vector_misaligned_atomicity_granule_size_exp": 0,
+     "writable": false,
+     "write_idempotent": true
+    },
+    "base": {
+     "len": 64,
+     "value": "0x1000"
+    },
+    "include_in_device_tree": false,
+    "size": {
+     "len": 64,
+     "value": "0x1000"
+    }
+   },
+   {
+    "attributes": {
+     "atomic_support": "AMONone",
+     "cacheable": false,
+     "coherent": true,
+     "executable": false,
+     "mem_type": "IOMemory",
+     "misaligned_atomicity_granule_size_exp": 0,
+     "misaligned_exceptions": {
+      "amo": "AccessFault",
+      "load_store": {
+       "None": null
+      },
+      "lrsc": "AccessFault",
+      "vector": {
+       "None": null
+      }
+     },
+     "read_idempotent": false,
+     "readable": true,
+     "reservability": "RsrvNone",
+     "supports_cbo_zero": false,
+     "supports_pte_read": false,
+     "supports_pte_write": false,
+     "vector_misaligned_atomicity_granule_size_exp": 0,
+     "writable": true,
+     "write_idempotent": false
+    },
+    "base": {
+     "len": 64,
+     "value": "0x2000000"
+    },
+    "include_in_device_tree": false,
+    "size": {
+     "len": 64,
+     "value": "0x10000000"
+    }
+   },
+   {
+    "attributes": {
+     "atomic_support": "AMOCASQ",
+     "cacheable": true,
+     "coherent": true,
+     "executable": true,
+     "mem_type": "MainMemory",
+     "misaligned_atomicity_granule_size_exp": 4,
+     "misaligned_exceptions": {
+      "amo": "AccessFault",
+      "load_store": {
+       "None": null
+      },
+      "lrsc": "AccessFault",
+      "vector": {
+       "None": null
+      }
+     },
+     "read_idempotent": true,
+     "readable": true,
+     "reservability": "RsrvEventual",
+     "supports_cbo_zero": true,
+     "supports_pte_read": true,
+     "supports_pte_write": true,
+     "vector_misaligned_atomicity_granule_size_exp": 4,
+     "writable": true,
+     "write_idempotent": true
+    },
+    "base": {
+     "len": 64,
+     "value": "0x80000000"
+    },
+    "include_in_device_tree": true,
+    "size": {
+     "len": 64,
+     "value": "0x3000"
+    }
+   }
+  ]
+ }
+}

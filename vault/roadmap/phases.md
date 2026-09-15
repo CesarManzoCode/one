@@ -9,7 +9,7 @@ Estas fases conservan la dirección; no son un roadmap rígido y se recomponen c
 
 ## O0 — Foundation
 
-**Completo.** v0.1.0: idea, hipótesis, invariantes. v0.2.0: consolidación técnica (semántica, Core-O1, perfiles, protocolo, métricas, claims, ledger).
+**Completo.** v0.1.0: idea, hipótesis, invariantes. v0.2.0: consolidación técnica (semántica, Core-O1, perfiles, protocolo, métricas, claims, ledger). v0.3.0: cierre pre-código (ADR-007, ADR-008, SPEC-003 v0.2), sin implementación.
 
 ## O1 — Computational Core
 
@@ -17,7 +17,7 @@ Estas fases conservan la dirección; no son un roadmap rígido y se recomponen c
 
 Orden previsto. Cada componente tiene oráculo antes de existir su consumidor:
 
-1. **Aparato**: verificador e intérprete de referencia de Core-O1; harness de contratos; integración de oráculos; contratos `K` iniciales y held-out sellada.
+1. **Aparato** (siguiente; su primer sprint está descrito en el [estado actual](current-state.md)): verificador e intérprete de referencia de Core-O1; harness de contratos; integración de oráculos; contratos `K` iniciales y held-out sellada.
 2. **Rutas de entrada**: frontend ONE-C-O1 y lifter RV64IM-O1 hasta legalidad en el join y corrección por origen.
 3. **Mecanismos compartidos**: canonicalización y los cuatro pases fuertes con sus negativos.
 4. **Backend** x86-64-O1 y runtime de frontera.
