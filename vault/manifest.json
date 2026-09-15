@@ -1,9 +1,9 @@
 {
   "project": "ONE",
-  "vault_version": "0.2.0",
-  "previous_version": "0.1.0",
+  "vault_version": "0.3.0",
+  "previous_version": "0.2.0",
   "cutoff": "2026-09-14",
-  "status": "foundation-consolidated",
+  "status": "implementation-foundation-decided",
   "files": [
     "README.md",
     "architecture/computational-model.md",
@@ -19,14 +19,17 @@
     "decisions/ADR-004-semantic-discharge-convergence.md",
     "decisions/ADR-005-core-o1-representation.md",
     "decisions/ADR-006-o1-falsification-campaign.md",
+    "decisions/ADR-007-o1-implementation-foundation.md",
     "decisions/README.md",
     "evidence/ledger.md",
     "evidence/origin.md",
     "glossary.md",
     "governance.md",
     "manifest.json",
+    "research/ONE-Q1-Implementation-Foundation-Decision.md",
     "research/ONE-Technical-Foundation-Consolidation-Research.md",
     "research/consolidation-disposition.md",
+    "research/q1-disposition.md",
     "research/related-work.md",
     "research/risks.md",
     "research/sources.md",
@@ -48,6 +51,16 @@
     "VAL-003": "0.1",
     "VAL-004": "0.1"
   },
+  "implementation_foundation": {
+    "decision": "ADR-007",
+    "language": "C++17",
+    "infrastructure": "MLIR (Core-O1 as a ONE-owned dialect)",
+    "build": "CMake/Ninja",
+    "llvm_project": {
+      "tag": "llvmorg-23.1.1",
+      "commit": "6dfe1677ab8dffbc6ec13d53a1e0215d75147689"
+    }
+  },
   "evidence_entries": 0,
-  "notes": "No implementation and no observed evidence exist at this snapshot. v0.2.0 consolidates the foundation into accepted decisions (ADR-004..006), designed semantic contracts, the O1 falsification protocol, metrics, a claims registry and an empty evidence ledger. research/hypotheses.md was replaced by claims.md. Private project context is intentionally excluded from the public manifest and git tracking."
+  "notes": "No implementation and no observed evidence exist at this snapshot. v0.3.0 accepts the O1 implementation foundation (ADR-007) from the Q1 research, which remains research with its disposition in research/q1-disposition.md; the decision is architectural, not a performance claim, and nothing has been built. Next pre-code blocker: fix O1 oracle versions (Sail, Spike, Clang, GCC) and resolve the SPEC-003 'A confirmar' points. v0.2.0 consolidated the foundation into accepted decisions (ADR-004..006), designed semantic contracts, the O1 falsification protocol, metrics, a claims registry and an empty evidence ledger. research/hypotheses.md was replaced by claims.md. Private project context is intentionally excluded from the public manifest and git tracking."
 }

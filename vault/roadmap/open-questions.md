@@ -11,7 +11,6 @@ Una pregunta sigue abierta cuando no existe evidencia que la discrimine. Cada un
 
 | ID | Pregunta | Por qué sigue abierta | Evidencia que la resuelve | Horizonte |
 |---|---|---|---|---|
-| Q1 | Lenguaje e infraestructura de implementación, incluido Core-O1 como dialecto MLIR frente a infraestructura propia. | No hay experimento discriminante; decidir por preferencia sería arbitrario. | ADR con criterios medibles: control de layout y memoria, latencia de compilación, closure y procedencia de símbolos (A7), integración con oráculos, coste de build, superficie `unsafe`. Idealmente un prototipo mínimo comparativo del verificador y el intérprete. | pre-código, **bloqueante** |
 | Q2 | Forma de ONE Core después de O1: híbridos de regiones y grafos. | O1 solo usa CFG. | Necesidades medidas de EXP-02. | O2+ |
 | Q3 | Número y fronteras de niveles. | O1 no ejercita niveles previos al join. | EXP-02: dónde debe estar el join para DSP. | O2+ |
 | Q4 | ¿Debe sobrevivir alguna procedencia al join (direcciones tipadas, hechos de procedencia)? | La descarga de O1 es suficiente por diseño, no por evidencia. | Ablación de hechos y pérdida de descarga en O1; necesidades de buffers en O2. | O1 / O2 |
@@ -37,13 +36,19 @@ Una pregunta sigue abierta cuando no existe evidencia que la discrimine. Cada un
 | Q24 | ¿Aceptar ELF como entrada RV? | Ortogonal a la tesis en O1. | Necesidad de workloads posteriores. | post-O1 |
 | Q25 | Garantías de la composición Clang + Rellume + LLVM: preservación de traps de acceso y fidelidad de estado. | No verificado. | Pruebas de caracterización con los oráculos de VAL-004. | pre-held-out |
 
+## Resueltas en v0.3.0
+
+| ID | Pregunta | Resolución |
+|---|---|---|
+| Q1 | Lenguaje e infraestructura de implementación, incluido Core-O1 como dialecto MLIR frente a infraestructura propia (`pre-código`, bloqueante). | Resuelta por [ADR-007](../decisions/ADR-007-o1-implementation-foundation.md): C++17 y Core-O1 como dialecto propio sobre MLIR `llvmorg-23.1.1`, sin prototipo comparativo previo. La deliberación está en el [research de Q1](../research/ONE-Q1-Implementation-Foundation-Decision.md). Las mediciones de coste quedan para la implementación. |
+
 ## Resueltas o acotadas en v0.2.0
 
 Numeración de v0.1:
 
 | v0.1 | Pregunta | Resolución |
 |---|---|---|
-| 1 | Rust, C++, Zig u otra base | Sigue abierta como Q1, ahora bloqueante y con la alternativa MLIR. |
+| 1 | Rust, C++, Zig u otra base | Sigue abierta como Q1, ahora bloqueante y con la alternativa MLIR. Resuelta en v0.3.0 por ADR-007. |
 | 2 | SSA, graph IR, regiones | Acotada para O1 por ADR-005; resto en Q2. |
 | 3 | Cuántos niveles | Q3; O1 no la informa. |
 | 4 | Efectos, aliasing, espacios de memoria | Acotada para O1 por SPEC-002 §4 y §7; resto en Q4. |

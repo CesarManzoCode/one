@@ -9,7 +9,7 @@ Estas fases conservan la dirección; no son un roadmap rígido y se recomponen c
 
 ## O0 — Foundation
 
-**Completo.** v0.1.0: idea, hipótesis, invariantes. v0.2.0: consolidación técnica (semántica, Core-O1, perfiles, protocolo, métricas, claims, ledger).
+**Completo.** v0.1.0: idea, hipótesis, invariantes. v0.2.0: consolidación técnica (semántica, Core-O1, perfiles, protocolo, métricas, claims, ledger). v0.3.0: implementation foundation de O1 decidida (ADR-007), sin implementación.
 
 ## O1 — Computational Core
 

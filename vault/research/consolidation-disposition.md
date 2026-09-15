@@ -49,8 +49,8 @@ Trazabilidad entre las recomendaciones del [research de consolidación](ONE-Tech
 | 36 | `validation/benchmark-schema.json`, `validation/reuse-schema.json` (§24) | rechazada por ahora | — | Campos especificados en Markdown (ledger, VAL-003, VAL-004). Un esquema de máquina sin harness derivaría antes de existir tooling. |
 | 37 | `spec/o1-scope.md`, `semantic-relations.md`, `one-core-contract.md`, `pass-contracts.md` (§24) | modificada | SPEC-001, SPEC-002, SPEC-003 | Tres specs en lugar de cuatro: los contratos de pase viven en el contrato del core. |
 | 38 | `claims/registry.md`, `evidence/ledger-schema.md` (§24) | aceptada, modificada | [claims](../claims.md); [ledger](../evidence/ledger.md) | El registro sustituye a `research/hypotheses.md`. |
-| 39 | Lenguaje de implementación abierto hasta un ADR (§22, §26) | aceptada | [Q1](../roadmap/open-questions.md) | Bloqueante antes de escribir código de O1; incluye la alternativa MLIR. |
-| 40 | Comparación core propio frente a prototipo MLIR (§25) | abierta | Q1; related-work §4 | — |
+| 39 | Lenguaje de implementación abierto hasta un ADR (§22, §26) | aceptada | [Q1](../roadmap/open-questions.md) | Bloqueante antes de escribir código de O1; incluye la alternativa MLIR. Cerrada en v0.3.0 por [ADR-007](../decisions/ADR-007-o1-implementation-foundation.md). |
+| 40 | Comparación core propio frente a prototipo MLIR (§25) | abierta | Q1; related-work §4 | En v0.3.0, ADR-007 resuelve Q1 sin prototipo comparativo previo ([disposición de Q1](q1-disposition.md) #14). |
 
 ## Aportaciones de la consolidación ausentes en el research
 
