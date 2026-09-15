@@ -7,6 +7,8 @@ status: open
 
 Una pregunta sigue abierta cuando no existe evidencia que la discrimine. Cada una declara qué evidencia la resolvería y cuándo debe resolverse.
 
+Desde v0.3.0 no queda ninguna pregunta abierta con horizonte `pre-código` ([estado actual](current-state.md)).
+
 **Horizontes**: `pre-código` (antes de escribir código de O1) · `pre-held-out` (antes de ejecutar la campaña O1) · `O1` (se resuelve con mediciones de O1) · `post-O1` · `O2+`.
 
 | ID | Pregunta | Por qué sigue abierta | Evidencia que la resuelve | Horizonte |
@@ -41,6 +43,7 @@ Una pregunta sigue abierta cuando no existe evidencia que la discrimine. Cada un
 | ID | Pregunta | Resolución |
 |---|---|---|
 | Q1 | Lenguaje e infraestructura de implementación, incluido Core-O1 como dialecto MLIR frente a infraestructura propia (`pre-código`, bloqueante). | Resuelta por [ADR-007](../decisions/ADR-007-o1-implementation-foundation.md): C++17 y Core-O1 como dialecto propio sobre MLIR `llvmorg-23.1.1`, sin prototipo comparativo previo. La deliberación está en el [research de Q1](../research/ONE-Q1-Implementation-Foundation-Decision.md). Las mediciones de coste quedan para la implementación. |
+| — | Confirmaciones de SPEC-003 v0.1 (`pre-código`): accesos RV64IM no alineados, y `SLLIW`/`SRLIW`/`SRAIW` con `imm[5] ≠ 0`. | Resueltas en SPEC-003 v0.2 con los oráculos de [ADR-008](../decisions/ADR-008-o1-oracle-baseline.md). Accesos no alineados soportados, con semántica Zicclsm; cruces de límite de región atómicos. Las `*IW` reservadas por la ISA producen trap `illegal_instruction` por decisión del EEI. |
 
 ## Resueltas o acotadas en v0.2.0
 
