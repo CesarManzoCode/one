@@ -56,3 +56,7 @@ O2 y el diseño DSP; segundo backend; DBT; ELF como formato de entrada.
 - Rellume deja de ser utilizable: se sustituye por otra composición documentada sin cambiar los claims.
 - El detector de derivación no separa pares derivados conocidos de independientes: la campaña primaria es `inconclusive` por diseño y se rediseña el procedimiento.
 - El perfil C resulta demasiado estrecho para producir bucles no triviales con memoria: se amplía mediante nueva versión de SPEC-003 antes del preregistro, nunca después.
+
+## Relaciones
+
+La dependencia `pre-código` sobre lenguaje e infraestructura (Q1) quedó resuelta por [ADR-007](ADR-007-o1-implementation-foundation.md) (v0.3.0). La consecuencia correspondiente describe el estado de v0.2.0. ADR-007 no fija las versiones de la composición rival ni de los oráculos.

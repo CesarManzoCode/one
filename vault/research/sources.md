@@ -9,7 +9,7 @@ Fecha de corte: 2026-09-14. Se listan las fuentes en que se apoyan decisiones, s
 
 **Marcas**:
 
-- **[c]**: consultada directamente durante la consolidación (2026-09-14);
+- **[c]**: consultada directamente durante la consolidación o durante la incorporación de ADR-007 (2026-09-14);
 - **[r]**: tomada del ledger del research;
 - **[b]**: referencia bibliográfica conocida, no consultada en este sprint. Debe verificarse antes de citarse como soporte central.
 
@@ -61,6 +61,23 @@ Fecha de corte: 2026-09-14. Se listan las fuentes en que se apoyan decisiones, s
 - [r] rev.ng, ICCST 2018 — https://rev.ng/downloads/iccst-18-paper.pdf
 - [r] BAP, CAV 2011 — https://edmcman.github.io/pres/cav11.pdf
 - [b] TinyCC — https://bellard.org/tcc/
+
+## Implementation foundation (ADR-007)
+
+Tomadas del [research de Q1](ONE-Q1-Implementation-Foundation-Decision.md) ([r] en esta sección se refiere a ese research), salvo indicación.
+
+- [c] llvm-project, tag `llvmorg-23.1.1` → commit `6dfe1677ab8dffbc6ec13d53a1e0215d75147689` (verificado con `git ls-remote`) — https://github.com/llvm/llvm-project
+- [r] MLIR ODS — https://mlir.llvm.org/docs/DefiningDialects/Operations/
+- [r] MLIR Interfaces — https://mlir.llvm.org/docs/Interfaces/
+- [r] MLIR `arith` dialect — https://mlir.llvm.org/docs/Dialects/ArithOps/
+- [r] MLIR Side Effects & Speculation — https://mlir.llvm.org/docs/Rationale/SideEffectsAndSpeculation/
+- [r] MLIR Canonicalization — https://mlir.llvm.org/docs/Canonicalization/
+- [r] MLIR Pattern Rewriter — https://mlir.llvm.org/docs/PatternRewriter/
+- [r] MLIR Pass Infrastructure — https://mlir.llvm.org/docs/PassManagement/
+- [r] MLIR Creating a Dialect — https://mlir.llvm.org/docs/Tutorials/CreatingADialect/
+- [r] MLIR Getting Started — https://mlir.llvm.org/getting_started/
+- [r] LLVM Coding Standards — https://llvm.org/docs/CodingStandards.html
+- [r] llvm-mc — https://llvm.org/docs/CommandGuide/llvm-mc.html
 
 ## Verificación y generación de pruebas (VAL-004 §7)
 

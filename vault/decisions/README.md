@@ -27,5 +27,6 @@ Cambiar una decisión exige un ADR nuevo que la sustituya; el anterior se marca 
 | [ADR-002](ADR-002-multilevel-ir.md) | Representación multinivel | accepted | global; no ejercitado por O1 |
 | [ADR-003](ADR-003-modular-universality.md) | Universalidad modular | accepted | global |
 | [ADR-004](ADR-004-semantic-discharge-convergence.md) | Convergencia por descarga semántica y mecanismos origin-blind | accepted | global |
-| [ADR-005](ADR-005-core-o1-representation.md) | Representación ejecutable de Core-O1 | accepted | Core-O1 (O1) |
+| [ADR-005](ADR-005-core-o1-representation.md) | Representación ejecutable de Core-O1 | accepted | Core-O1 (O1); implementación en ADR-007 |
 | [ADR-006](ADR-006-o1-falsification-campaign.md) | O1 como campaña de falsificación acotada | accepted | O1 |
+| [ADR-007](ADR-007-o1-implementation-foundation.md) | Implementation foundation de O1: C++17, Core-O1 como dialecto sobre MLIR `llvmorg-23.1.1` | accepted | implementación de O1 |

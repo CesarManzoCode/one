@@ -52,3 +52,7 @@ Sintaxis textual y serialización; implementación propia o sobre MLIR; nivel Ma
 - Una optimización requerida por O1 no puede implementarse sin poison, o el descarte de hechos al especular tiene un coste medido significativo en el corpus.
 - La ausencia de tipo puntero impide un análisis de alias requerido por C-O1-3.
 - EXP-02 requiere regiones no-CFG antes del join y el meta-modelo no las admite sin cambiar pases existentes.
+
+## Relaciones
+
+Complementado por [ADR-007](ADR-007-o1-implementation-foundation.md) (v0.3.0), que resuelve la infraestructura que este ADR dejaba abierta: Core-O1 se implementa como dialecto propio sobre MLIR. La representación decidida aquí no cambia. Las menciones a MLIR como alternativa abierta en “Alternativas consideradas” y “Qué no decide” reflejan el estado de v0.2.0.
