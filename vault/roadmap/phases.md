@@ -5,41 +5,49 @@ status: provisional
 ---
 # Fases provisionales
 
-Estas fases sirven para conservar la dirección, no para prometer un roadmap rígido. Pueden recomponerse cuando la evidencia lo exija.
+Estas fases conservan la dirección; no son un roadmap rígido y se recomponen cuando la evidencia lo exija. Los criterios de éxito de cada fase viven en `validation/`, no aquí.
 
 ## O0 — Foundation
 
-Vault, fuentes, hipótesis, invariantes y experimento inicial. **Estado: completo con v0.1.0.**
+**Completo.** v0.1.0: idea, hipótesis, invariantes. v0.2.0: consolidación técnica (semántica, Core-O1, perfiles, protocolo, métricas, claims, ledger).
 
 ## O1 — Computational Core
 
-C + RISC-V binary → ONE IR → optimizer → x86-64. Differential testing, fuzzing, cross-origin equivalence y primeras métricas de footprint/performance.
+**Objetivo**: intentar romper el join en el par de orígenes más cercano (ONE-C-O1 y RV64IM-O1 hacia x86-64) antes de ampliar superficie ([ADR-006](../decisions/ADR-006-o1-falsification-campaign.md)). No demuestra la tesis global.
 
-Objetivo: demostrar que existe un núcleo común real antes de ampliar la superficie.
+Orden previsto. Cada componente tiene oráculo antes de existir su consumidor:
+
+1. **Aparato**: verificador e intérprete de referencia de Core-O1; harness de contratos; integración de oráculos; contratos `K` iniciales y held-out sellada.
+2. **Rutas de entrada**: frontend ONE-C-O1 y lifter RV64IM-O1 hasta legalidad en el join y corrección por origen.
+3. **Mecanismos compartidos**: canonicalización y los cuatro pases fuertes con sus negativos.
+4. **Backend** x86-64-O1 y runtime de frontera.
+5. **Campaña**: preregistro, ejecución held-out, composición rival, entradas de ledger.
+
+Cierre y consecuencias: [VAL-004 §13](../validation/o1-protocol.md).
 
 ## O2 — DSP stress
 
-Introducir vectores, streams, FFT/filtering y scheduling suficiente para intentar romper la abstracción desde otro tipo de cómputo.
+Primer dominio adversarial: vectores, streams, FFT, filtering y scheduling suficientes para intentar romper Core-O1 y ADR-004. Propósito y firmas de fallo en EXP-02. Sin diseñar hasta cerrar O1.
 
 ## O3 — Multi-backend
 
-Añadir otro backend real y demostrar el efecto multiplicador frontend × backend.
+Segundo backend real; primera medición de H3 (EXP-03).
 
 ## O4 — Numerics
 
-Bit-precise/IEEE-754, arbitrary precision y kernels numéricos que sean usados por más de un dominio.
+Bit-precise e IEEE-754, precisión arbitraria y kernels numéricos usados por más de un dominio.
 
 ## O5 — Media
 
-Codec/pipeline propio con benchmarking serio y reutilización del stack ONE.
+Codec o pipeline propio con benchmarking serio y reutilización del stack ONE.
 
 ## O6 — Dynamic/runtime surface
 
-Lenguaje/runtime dinámico si aporta una prueba técnica relevante; no se añade por checklist.
+Lenguaje o runtime dinámico solo si aporta una prueba técnica relevante.
 
 ## O7 — Neural/compression
 
-Tensor/inference y compresión real como workload, con runtime propio suficiente.
+Inferencia y compresión real como workload, con runtime propio suficiente.
 
 ## O8 — Radio/SDR
 
@@ -47,12 +55,12 @@ DSP + PHY/communications sobre hardware SDR real.
 
 ## O9 — Portability and browser
 
-WASM/browser y/o hardware especializado X. Arranque de un sistema guest completo cuando la emulación esté madura.
+WASM/browser y/o hardware especializado X. Arranque de un sistema guest completo cuando la emulación esté madura y aporte información ([Q22](open-questions.md)).
 
 ## O10 — Integrated machine
 
-Vertical de extremo a extremo con múltiples orígenes de cómputo y dos máquinas ONE comunicándose.
+Vertical de extremo a extremo con múltiples orígenes y dos máquinas ONE comunicándose.
 
 ## O11 — Comparative campaign
 
-Campaña comparativa final bajo criterios prefijados. Esta fase evalúa el criterio humano de victoria; no redefine el criterio.
+Campaña comparativa final frente a la composición de sistemas maduros, bajo criterios preregistrados. Evalúa; no redefine el criterio.
